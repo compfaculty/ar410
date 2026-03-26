@@ -1,5 +1,7 @@
 ## HOWTO: Install and run activness-reporter
 
+*Українська: [HOWTO.uk.md](HOWTO.uk.md)*
+
 This document is for **end users** who just want to download a binary, configure
 credentials, and run the tool. No Rust toolchain is required.
 
@@ -52,13 +54,12 @@ chmod +x activness-reporter
 
 ---
 
-## 3. Configure environment (.env)
+## 3. Configure environment (credentials)
 
-`activness-reporter` expects Activeness credentials as environment variables.
-The easiest way to provide them is via a `.env` file in the same directory as
-the binary.
+`activness-reporter` expects Activeness credentials as **environment variables**.
+Start with **Method 1** (`.env` file); the other methods are optional.
 
-Create a file named `.env` alongside the executable with contents like:
+Example values to put in `.env` or set by hand:
 
 ```env
 ACTIVENESS_EMAIL=your@email
@@ -67,50 +68,173 @@ ACTIVENESS_PASSWORD=your_password
 # ACTIVENESS_API_URL=https://activeness.social/api
 ```
 
-Notes:
+### Method 1 — `.env` file (recommended)
+
+Do this if you are on Windows and are not comfortable with the terminal yet.
+
+1. Open **Notepad** (or another **plain text** editor — not Microsoft Word).
+2. Paste the three lines above. Replace `your@email` with your Activeness email
+   and `your_password` with your password. Leave the `#` lines as they are
+   unless you need a custom API URL.
+3. Choose **File → Save As…**
+4. In the file dialog, open the **same folder** that contains
+   `activness-reporter.exe` (Windows) or `activness-reporter` (Linux/macOS).
+5. In **File name**, type exactly: `.env` (a dot, then the letters env).
+6. In **Save as type** (Windows), choose **All files (`*.*`)** so Windows does
+   not rename the file to `.env.txt`.
+
+**Tip (Windows):** In File Explorer, use **View → Show → File name extensions**
+so you can see if the file was accidentally saved as `env.txt` instead of
+`.env`.
+
+### Method 2 — only for the current terminal session
+
+Use this if you cannot create a `.env` file. **Closing the terminal removes
+these values.** For everyday use, Method 1 is easier.
+
+1. Open a terminal in the program folder (see [section 4](#4-first-run)).
+
+**PowerShell** (prompt often starts with `PS`):
+
+```powershell
+$env:ACTIVENESS_EMAIL = "your@email"
+$env:ACTIVENESS_PASSWORD = "your_password"
+```
+
+**Command Prompt (CMD)** (classic black window; no `PS` in the prompt):
+
+```bat
+set ACTIVENESS_EMAIL=your@email
+set ACTIVENESS_PASSWORD=your_password
+```
+
+In CMD, do **not** put spaces around the `=` sign.
+
+### Method 3 — Windows “Environment variables” (advanced)
+
+This stores credentials for **your user account** (or for the whole PC if you
+use *system* variables). Use it only if you understand that the values are kept
+in Windows settings until you remove them.
+
+1. Open **Settings → System → About → Advanced system settings**
+   (or search Windows for “environment variables”).
+2. Click **Environment variables…**
+3. Under **User variables** click **New…** and add `ACTIVENESS_EMAIL`, then
+   repeat for `ACTIVENESS_PASSWORD`. *(System variables apply to all users and
+   usually need administrator rights; prefer user variables for personal
+   logins.)*
+4. **Close every open terminal window**, then open a **new** one so the
+   program sees the new values.
+
+### Notes
 
 - `ACTIVENESS_EMAIL` and `ACTIVENESS_PASSWORD` must match your Activeness
   account.
-- You can use `ACTIVENESS_PSW` instead of `ACTIVENESS_PASSWORD` if configured
-  that way in your environment.
+- You can use `ACTIVENESS_PSW` instead of `ACTIVENESS_PASSWORD` if that is how
+  your environment is set up.
 - Leave `ACTIVENESS_API_URL` commented out unless you have a custom endpoint.
-
-If you prefer, you can set these variables directly in your shell instead of
-using `.env`.
 
 ---
 
 ## 4. First run
 
-### Windows (PowerShell)
+### Windows
 
-From the folder containing `activness-reporter.exe` and `.env`:
+Follow the steps in order the first time.
+
+#### Step 1 — Open a terminal in the program folder
+
+Pick **one** approach.
+
+**Easiest (File Explorer):**
+
+1. Open the folder that contains **`activness-reporter.exe`** and your **`.env`**
+   file.
+2. Click once in the **address bar** (where the path is shown).
+3. Type `powershell` and press **Enter** to open PowerShell in that folder,
+   **or** type `cmd` and press **Enter** to open Command Prompt.
+
+**Manual:**
+
+1. Open **Windows Terminal**, **Windows PowerShell**, **PowerShell 7**, or
+   **Command Prompt**.
+2. Go to the folder with `cd`, for example:
+
+   ```powershell
+   cd D:\Downloads\activness-reporter
+   ```
+
+   If you use **CMD** and the program is on another drive (for example `D:`),
+   use:
+
+   ```bat
+   cd /d D:\Downloads\activness-reporter
+   ```
+
+#### Step 2 — Know which shell you are using
+
+- **Windows Terminal** is only the window: each **tab** is still either
+  PowerShell or CMD — use the matching commands below.
+- **PowerShell:** the prompt usually shows **`PS`**. You **must** type
+  **`.\`** before the program name (security feature).
+- **CMD:** the prompt looks like `C:\...>`. You can run the `.exe` name **without**
+  **`.\`**.
+
+#### Quick reference
+
+| You opened… | Run the program like this |
+|-------------|---------------------------|
+| PowerShell (in the program folder) | `.\activness-reporter.exe` |
+| CMD (in the program folder) | `activness-reporter.exe` |
+| Linux / macOS (in the program folder) | `./activness-reporter` |
+
+#### Step 3 — Start the TUI (default)
+
+**PowerShell:**
 
 ```powershell
 .\activness-reporter.exe
 ```
 
+**Command Prompt (CMD):**
+
+```bat
+activness-reporter.exe
+```
+
 This starts the TUI (text UI) for viewing and processing Activeness targets.
 
-Other common commands:
+#### Other common commands
 
-- Headless mode (for schedulers / automation):
+**Headless mode** (for schedulers / automation):
 
-  ```powershell
-  .\activness-reporter.exe --headless
-  ```
+```powershell
+.\activness-reporter.exe --headless
+```
 
-- Refresh browser profiles / site logins:
+```bat
+activness-reporter.exe --headless
+```
 
-  ```powershell
-  .\activness-reporter.exe --update-profile
-  ```
+**Refresh browser profiles / site logins:**
 
-- Use local JSON targets file (skips Activeness API; useful for testing):
+```powershell
+.\activness-reporter.exe --update-profile
+```
 
-  ```powershell
-  .\activness-reporter.exe --from-json .\targets.json
-  ```
+```bat
+activness-reporter.exe --update-profile
+```
+
+**Local JSON targets file** (skips Activeness API; useful for testing):
+
+```powershell
+.\activness-reporter.exe --from-json .\targets.json
+```
+
+```bat
+activness-reporter.exe --from-json targets.json
+```
 
 ### Linux / macOS
 
@@ -159,7 +283,13 @@ If you see longer startup times on the first run, this is expected.
 
 - **Nothing happens / exits immediately**
   - Check that `.env` is present in the same directory as the binary.
+  - On Windows, make sure the file is named `.env`, not `.env.txt` or `env.txt`
+    (turn on file name extensions in Explorer).
   - Verify `ACTIVENESS_EMAIL` and `ACTIVENESS_PASSWORD` are set and correct.
+
+- **`activness-reporter` / command not found (PowerShell on Windows)**
+  - In **PowerShell**, run `.\activness-reporter.exe` from the folder that
+    contains the `.exe`, including the `.\` at the start.
 
 - **Authentication or API errors**
   - Confirm your Activeness account is active and credentials are valid.
@@ -167,7 +297,8 @@ If you see longer startup times on the first run, this is expected.
 
 - **Terminal display issues (TUI)**
   - Use a modern terminal emulator.
-  - On Windows, prefer Windows Terminal or PowerShell over legacy `cmd.exe`.
+  - On Windows, prefer Windows Terminal or PowerShell over legacy `cmd.exe`
+    for the best compatibility.
 
 - **Browser automation not working**
   - Make sure your environment allows outgoing HTTPS connections.
@@ -175,4 +306,3 @@ If you see longer startup times on the first run, this is expected.
 
 If issues persist, capture the full console output and share it with whoever
 manages your Activeness deployment.
-

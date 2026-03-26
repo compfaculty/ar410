@@ -24,7 +24,7 @@ Each release contains archives like:
 - `activness-reporter-aarch64-apple-darwin.tar.gz`
 
 Pick the archive matching your OS/architecture and follow the steps in
-[HOWTO.md](HOWTO.md).
+[HOWTO.md](HOWTO.md) (Українською: [HOWTO.uk.md](HOWTO.uk.md)).
 
 ---
 
@@ -56,7 +56,8 @@ Once you have downloaded and unpacked the binary:
   ./activness-reporter --from-json targets.json
   ```
 
-For full step‑by‑step instructions, see [HOWTO.md](HOWTO.md).
+For full step‑by‑step instructions, see [HOWTO.md](HOWTO.md) or
+[HOWTO.uk.md](HOWTO.uk.md) (Ukrainian).
 
 ---
 
@@ -83,7 +84,7 @@ Environment variables:
 | `ACTIVENESS_PASSWORD`| Yes      | Activeness account password (or `ACTIVENESS_PSW`)       |
 | `ACTIVENESS_API_URL` | No       | Custom API endpoint (defaults to `https://activeness.social/api`) |
 
-See [HOWTO.md](HOWTO.md) for OS‑specific details.
+See [HOWTO.md](HOWTO.md) or [HOWTO.uk.md](HOWTO.uk.md) for OS‑specific details.
 
 ---
 
