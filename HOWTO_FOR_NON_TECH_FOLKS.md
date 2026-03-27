@@ -21,41 +21,25 @@ Tip before automation:
 
 ---
 
-## 1) Quick checklist
+## 1) Quick start
 
-- Download the app archive from GitHub Releases
-- Unzip it into a folder you can find later
-- Put a `.env` file in the same folder as `activness-reporter.exe`
-- Open terminal in that folder
-- Run the app
-
----
-
-## 2) Download the app
+### 1. Download the app archive
 
 1. Open [Releases](https://github.com/compfaculty/ar410/releases).
-2. Download the file for your system (Windows users: `.zip` file).
+2. Download the file for your system (Windows users: `.zip`).
 3. Save it to `Downloads` (or another folder you use often).
 
----
+![Step 1](docs/img/step1.png)
 
-## 3) Unzip the archive
-
-### Windows
+### 2. Unzip into a folder you can find later
 
 1. Right-click the downloaded `.zip`.
-2. Click **Extract All...**
+2. Click **Extract All...**.
 3. Open the extracted folder and make sure `activness-reporter.exe` exists.
 
-Optional PowerShell command:
+![Step 2](docs/img/step2.png)
 
-```powershell
-Expand-Archive -Path .\activness-reporter-x86_64-pc-windows-msvc.zip -DestinationPath .\activness-reporter
-```
-
----
-
-## 4) Create `.env` with your login
+### 3. Create a `.env` file in the same folder as `activness-reporter.exe`
 
 1. Open Notepad.
 2. Paste this template:
@@ -68,101 +52,65 @@ ACTIVENESS_PASSWORD=your_password
 ```
 
 3. Replace email/password with your real account.
+
 4. Save the file as `.env` in the same folder as `activness-reporter.exe`.
-5. In Windows Save dialog, use **Save as type: All files (*.*)** to avoid `.env.txt`.
+5. In Windows Save dialog, choose **Save as type: All files (*.*)** to avoid `.env.txt`.
 
----
+![Step 10](docs/img/step10.png)
+![Step 11](docs/img/step11.png)
 
-## 5) Run the app
+### 4. Open terminal in that folder
 
-### Easiest method (Windows)
+![Step 4](docs/img/step4.png)
 
-1. Open the app folder in File Explorer.
-2. Click the address bar.
-3. Type `powershell` and press Enter.
-4. Run:
+### 5. Run the app and initialize browser profiles
 
-```powershell
-.\activness-reporter.exe
-```
-
-### Optional commands
-
-- Headless mode:
-
-```powershell
-.\activness-reporter.exe --headless
-```
-
-- Refresh profiles:
+Run:
 
 ```powershell
 .\activness-reporter.exe --update-profile
 ```
 
----
+You can also check options with:
 
-## 6) Common mistakes
+```powershell
+.\activness-reporter.exe --help
+```
 
-- App exits immediately: check `.env` is in the app folder.
-- Login fails: verify email/password in `.env`.
-- "Not recognized" in PowerShell: use `.\activness-reporter.exe` (with `.\`).
-- First launch is slow: browser components are downloaded once (normal behavior).
-
----
-
-## 7) Illustrated walkthrough
-
-Follow screenshots in order.
-
-### Step 1
-![Step 1](docs/img/step1.png)
-*Open the correct release page and start downloading.*
-
-### Step 2
-![Step 2](docs/img/step2.png)
-*Pick the correct archive for your OS.*
-
-### Step 3
-![Step 3](docs/img/step3.png)
-*Save the archive to a folder you can find easily.*
-
-### Step 4
-![Step 4](docs/img/step4.png)
-*Extract all files from the downloaded archive.*
-
-### Step 5
-![Step 5](docs/img/step5.png)
-*Open extracted folder and locate `activness-reporter.exe`.*
-
-### Step 6
 ![Step 6](docs/img/step6.png)
-*Create or edit `.env` with your account credentials.*
+*Start the profile update / browser initialization flow.*
 
-### Step 7
 ![Step 7](docs/img/step7.png)
-*Double-check the `.env` file name is exactly `.env`.*
+*On the first run, the app may install browser components and open a browser window for login.*
 
-### Step 8
 ![Step 8](docs/img/step8.png)
-*Open PowerShell in the same app folder.*
+*Use it like a regular browser: log in, pass captchas if needed, and close tabs you do not need. This browser state is saved for automation.*
 
-### Step 9
 ![Step 9](docs/img/step9.png)
-*Run the app command from that folder.*
+*When done in the browser, return to the console and press Enter. It closes the browser (sometimes you may need to wait a bit or press Enter again).*
 
-### Step 10
-![Step 10](docs/img/step10.png)
-*Wait during first startup while dependencies initialize.*
+### 6. Start normal run
 
-### Step 11
-![Step 11](docs/img/step11.png)
-*Confirm login and target loading steps complete.*
+Run:
 
-### Step 12
+```powershell
+.\activness-reporter.exe
+```
+
 ![Step 12](docs/img/step12.png)
-*Check the workflow is progressing without errors.*
+*This is what you should see in a normal run.*
 
-### Final screen (running app)
+If everything looks good, you can quit (press `q`) and run again with headless mode:
+
+```powershell
+.\activness-reporter.exe --headless
+```
+
+This hides the browser window and runs in the background.
+
+If something goes wrong, quit and start again first.
+
 ![Running app](docs/img/running-ar410.jpg)
 *Expected running state of `activness-reporter` (final result).*
+---
+
