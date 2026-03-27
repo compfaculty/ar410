@@ -24,7 +24,10 @@ Each release contains archives like:
 - `activness-reporter-aarch64-apple-darwin.tar.gz`
 
 Pick the archive matching your OS/architecture and follow the steps in
-[HOWTO.md](HOWTO.md) (Українською: [HOWTO.uk.md](HOWTO.uk.md)).
+[HOWTO.md](HOWTO.md) (Українською (ua): [HOWTO.ua.md](HOWTO.ua.md)).
+If you want a simpler click-by-click version, see
+[HOWTO_FOR_NON_TECH_FOLKS.md](HOWTO_FOR_NON_TECH_FOLKS.md) (Українською:
+[HOWTO_FOR_NON_TECH_FOLKS.ua.md](HOWTO_FOR_NON_TECH_FOLKS.ua.md)).
 
 ---
 
@@ -57,7 +60,10 @@ Once you have downloaded and unpacked the binary:
   ```
 
 For full step‑by‑step instructions, see [HOWTO.md](HOWTO.md) or
-[HOWTO.uk.md](HOWTO.uk.md) (Ukrainian).
+[HOWTO.ua.md](HOWTO.ua.md) (Ukrainian, ua).
+For non-technical, image-first onboarding, use
+[HOWTO_FOR_NON_TECH_FOLKS.md](HOWTO_FOR_NON_TECH_FOLKS.md) or
+[HOWTO_FOR_NON_TECH_FOLKS.ua.md](HOWTO_FOR_NON_TECH_FOLKS.ua.md).
 
 ---
 
@@ -84,7 +90,10 @@ Environment variables:
 | `ACTIVENESS_PASSWORD`| Yes      | Activeness account password (or `ACTIVENESS_PSW`)       |
 | `ACTIVENESS_API_URL` | No       | Custom API endpoint (defaults to `https://activeness.social/api`) |
 
-See [HOWTO.md](HOWTO.md) or [HOWTO.uk.md](HOWTO.uk.md) for OS‑specific details.
+See [HOWTO.md](HOWTO.md) or [HOWTO.ua.md](HOWTO.ua.md) for OS‑specific details.
+For simpler user-facing setup with screenshots, see
+[HOWTO_FOR_NON_TECH_FOLKS.md](HOWTO_FOR_NON_TECH_FOLKS.md) and
+[HOWTO_FOR_NON_TECH_FOLKS.ua.md](HOWTO_FOR_NON_TECH_FOLKS.ua.md).
 
 ---
 

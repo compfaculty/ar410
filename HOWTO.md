@@ -1,9 +1,25 @@
 ## HOWTO: Install and run activness-reporter
 
-*Українська: [HOWTO.uk.md](HOWTO.uk.md)*
+*Українська (ua): [HOWTO.ua.md](HOWTO.ua.md)*
 
 This document is for **end users** who just want to download a binary, configure
 credentials, and run the tool. No Rust toolchain is required.
+
+---
+
+## 0. Create your Activeness account first
+
+Before downloading anything:
+
+1. Open [activeness.social](https://activeness.social/).
+2. Create an account (or sign in if you already have one).
+3. Keep this login ready for configuration:
+   - `ACTIVENESS_EMAIL` = your Activeness account email
+   - `ACTIVENESS_PASSWORD` = your Activeness account password
+
+Recommended before automation:
+- Spend a few minutes using the site manually in your browser (open feed, stats,
+  and target pages) so you can understand how the workflow looks and feels.
 
 ---
 
