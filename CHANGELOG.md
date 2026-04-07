@@ -15,6 +15,19 @@ versioning.
 
 ---
 
+## [0.1.1] - 2026-04-08
+
+### Changed
+
+- Public binaries are built without the internal `--from-json` debug option;
+  targets are loaded from the Activeness API only.
+
+### Documentation
+
+- README and HOWTO no longer describe `--from-json`.
+
+---
+
 ## [0.1.0] - YYYY-MM-DD
 
 ### Added

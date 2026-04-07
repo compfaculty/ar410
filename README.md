@@ -53,12 +53,6 @@ Once you have downloaded and unpacked the binary:
   ./activness-reporter --update-profile
   ```
 
-- **Debug with local targets JSON** (skips Activeness API):
-
-  ```powershell
-  ./activness-reporter --from-json targets.json
-  ```
-
 For full step‑by‑step instructions, see [HOWTO.md](HOWTO.md) or
 [HOWTO.ua.md](HOWTO.ua.md) (Ukrainian, ua).
 For non-technical, image-first onboarding, use

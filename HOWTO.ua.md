@@ -243,16 +243,6 @@ activness-reporter.exe --headless
 activness-reporter.exe --update-profile
 ```
 
-**Локальний JSON із цілями** (без Activeness API; для тестів):
-
-```powershell
-.\activness-reporter.exe --from-json .\targets.json
-```
-
-```bat
-activness-reporter.exe --from-json targets.json
-```
-
 ### Linux / macOS
 
 З теки, де лежать `activness-reporter` і `.env`:
@@ -271,12 +261,6 @@ activness-reporter.exe --from-json targets.json
 
 ```bash
 ./activness-reporter --update-profile
-```
-
-Запуск з локальним JSON:
-
-```bash
-./activness-reporter --from-json targets.json
 ```
 
 ---

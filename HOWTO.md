@@ -242,16 +242,6 @@ activness-reporter.exe --headless
 activness-reporter.exe --update-profile
 ```
 
-**Local JSON targets file** (skips Activeness API; useful for testing):
-
-```powershell
-.\activness-reporter.exe --from-json .\targets.json
-```
-
-```bat
-activness-reporter.exe --from-json targets.json
-```
-
 ### Linux / macOS
 
 From the folder containing `activness-reporter` and `.env`:
@@ -270,12 +260,6 @@ Refresh profiles:
 
 ```bash
 ./activness-reporter --update-profile
-```
-
-Run with a local JSON file:
-
-```bash
-./activness-reporter --from-json targets.json
 ```
 
 ---
